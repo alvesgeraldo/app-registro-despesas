@@ -8,6 +8,7 @@ class Despesa {
         this.valor = valor;
     }
 
+    // Validando os dados recebidos
     validarDados(){
         for(let i in this){
             if(this[i] == undefined || this[i] == '' || this[i] == null) {
@@ -19,6 +20,8 @@ class Despesa {
     }
 };
 
+// Criando classe que se comunica com o localStorage
+
 class Bd {
     constructor(){
         let id = localStorage.getItem('id');
@@ -28,11 +31,13 @@ class Bd {
         }
     }
 
+    // Gerando Id automaticamente
     getProximoId() {
         let proximoId = localStorage.getItem('id');
         return parseInt(proximoId) + 1;
     }
     
+    // Gravando os dados em localStorage
     gravar(d) {
         let id = this.getProximoId();
         
@@ -41,6 +46,7 @@ class Bd {
         localStorage.setItem('id', id);
     }
 
+    // Recuperando os registros adicionados
     recuperaTodosRegistros(){
         // Array despesas
         let despesas = []
@@ -100,15 +106,30 @@ class Bd {
     remover(id){
         localStorage.removeItem(id);
     };
+
+    editarRegistro(idR){
+        let despesa;
+
+        let id = localStorage.getItem('id');
+
+        for (let i = 1; i <= id; i++) {
+
+            if (i == idR) {
+                despesa = JSON.parse(localStorage.getItem(i));
+            };
+
+        };
+
+        return despesa;
+    }
 };
 
 let bd = new Bd()
 
 function cadastrarDespesa(){
 
-    let ano = document.getElementById('ano');
-    let mes = document.getElementById('mes');
-    let dia = document.getElementById('dia');
+    let date = document.getElementById('date').value;
+    let [ano, mes, dia] = date.split('-');
     let tipo = document.getElementById('tipo');
     let descricao = document.getElementById('descricao');
     let valor = document.getElementById('valor');
@@ -116,9 +137,8 @@ function cadastrarDespesa(){
     let tituloModal = document.getElementById('tituloModal');
     let pModal = document.getElementById('pModal');
     let btnModal = document.getElementById('btnModal');
-    
 
-    let despesa = new Despesa(ano.value, mes.value, dia.value, tipo.value, descricao.value, valor.value);
+    let despesa = new Despesa(ano, mes, dia, tipo.value, descricao.value, valor.value);
 
     if(despesa.validarDados(despesa)){
         bd.gravar(despesa);
@@ -181,6 +201,18 @@ function carregaListaDespesas(despesas = Array(), filtro = false){
         linha.insertCell(2).innerHTML = d.descricao;
         linha.insertCell(3).innerHTML = d.valor;
 
+        let btnEditar = document.createElement('button');
+        btnEditar.className = 'btn btn-success';
+        btnEditar.innerHTML = '<i class="fas fa-edit"></i>';
+        btnEditar.id = `id_despesa_${d.id}`
+        btnEditar.onclick = function(){
+            let id = this.id.replace('id_despesa_', '')
+            
+            alert(bd.editarRegistro(id))
+
+        }
+        // linha.insertCell(4).append(btnEditar);
+
         let btn = document.createElement('button');
         btn.className = 'btn btn-danger';
         btn.innerHTML = '<i class="fas fa-times"></i>';
@@ -194,22 +226,13 @@ function carregaListaDespesas(despesas = Array(), filtro = false){
         }
         linha.insertCell(4).append(btn);
 
-        console.log(d);
     });
 
-    ano.value = '';
-    mes.value = '';
-    dia.value = '';
-    tipo.value = '';
-    descricao.value = '';
-    valor.value = '';
-    
 };
 
 function pesquisarDespesa(){
-    let ano = document.getElementById('ano').value;
-    let mes = document.getElementById('mes').value;
-    let dia = document.getElementById('dia').value;
+    let date = document.getElementById('date').value;
+    let [ano, mes, dia] = date.split('-');
     let tipo = document.getElementById('tipo').value;
     let descricao = document.getElementById('descricao').value;
     let valor = document.getElementById('valor').value;
