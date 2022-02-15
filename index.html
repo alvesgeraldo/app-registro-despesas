@@ -15,7 +15,8 @@
         <!-- Bootstrap fim -->
 
         <!-- Font Awesome -->
-        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script> -->
+        <script src="https://kit.fontawesome.com/3ca0835c19.js" crossorigin="anonymous"></script>
 
         <!-- Arquivo JS -->
 
@@ -118,41 +119,20 @@
     <!-- Fim Conteúdo Principal -->
 
     <!-- Modal erro gravação -->
-    <div class="modal fade" id="erroGravacao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalRegistroDespesa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-danger" id="exampleModalLabel">Erro</h5>
+                <h5 id="tituloModal" class="modal-title" id="exampleModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>Por favor, preencha todos os campos do formulário!</p>
+                <p id="pModal"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar e corrigir</button>
-            </div>
-        </div>
-        </div>
-    </div>
-    <!-- Fim do Modal -->
-
-    <!-- Modal sucesso gravação -->
-    <div class="modal fade" id="sucessoGravacao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-succes" id="exampleModalLabel">Salvo</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Os dados foram salvos com sucesso!</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>
+                <button id="btnModal" type="button" class="btn" data-dismiss="modal"></button>
             </div>
         </div>
         </div>
