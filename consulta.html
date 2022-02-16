@@ -61,15 +61,14 @@
             </div>
             <div class="row mb-2">
                 <div class="col-md-6">
-                    <input class="form-control" type="date" name="date" id="date">
-                    <!-- <select name="ano" id="ano" class="form-control">
+                    <select name="ano" id="ano" class="form-control">
                         <option value="">Ano</option>
                         <option value="2022">2022</option>
                         <option value="2023">2023</option>
                         <option value="2024">2024</option>
-                    </select> -->
+                    </select>
                 </div>
-                <!-- <div class="col-md-2">
+                <div class="col-md-2">
                     <select name="mes" id="mes" class="form-control">
                         <option value="">Mês</option>
                         <option value="1">Janeiro</option>
@@ -88,7 +87,7 @@
                 </div>
                 <div class="col-md-2">
                     <input type="text" name="dia" id="dia" class="form-control" placeholder="Dia">
-                </div> -->
+                </div>
                 <div class="col-md-6">
                     <select name="tipo-despesa" id="tipo" class="form-control">
                         <option value="">Tipo</option>
@@ -109,7 +108,7 @@
                     <input type="text" name="valor" id="valor" class="form-control" placeholder="Valor">
                 </div>
                 <div class="col-md-2 d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary mr-1" onclick="pesquisarDespesa()">
+                    <button type="button" class="btn btn-primary mr-1" onclick="pesquisaDespesa()">
                         <i class="fas fa-search"></i>
                     </button>
                     <button type="button" class="btn btn-primary" onclick="carregaListaDespesas()">

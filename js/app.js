@@ -71,7 +71,7 @@ class Bd {
     }
 
     pesquisar(despesa){
-        
+
         let filtroDespesas = [];
 
         filtroDespesas = this.recuperaTodosRegistros();
@@ -100,7 +100,7 @@ class Bd {
             filtroDespesas = filtroDespesas.filter(d => d.valor == despesa.valor);
         }
 
-        return filtroDespesas
+        return filtroDespesas;
     };
 
     remover(id){
@@ -230,16 +230,17 @@ function carregaListaDespesas(despesas = Array(), filtro = false){
 
 };
 
-function pesquisarDespesa(){
-    let date = document.getElementById('date').value;
-    let [ano, mes, dia] = date.split('-');
+function pesquisaDespesa(){
+    let ano = document.getElementById('ano').value;
+    let mes = document.getElementById('mes').value;
+    let dia = document.getElementById('dia').value;
     let tipo = document.getElementById('tipo').value;
     let descricao = document.getElementById('descricao').value;
     let valor = document.getElementById('valor').value;
 
     let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor);
 
-    let despesas = bd.pesquisar(despesa);
+    let despesas = bd.pesquisar(despesa)
 
     carregaListaDespesas(despesas, true)
     
