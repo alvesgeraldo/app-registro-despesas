@@ -196,6 +196,8 @@ function carregaListaDespesas(despesas = Array(), filtro = false){
                 break; 
             case '5': d.tipo = 'Transporte'
                 break;
+            case '6': d.tipo = 'Vestimenta'
+                break;
         };
         linha.insertCell(1).innerHTML = d.tipo;
         linha.insertCell(2).innerHTML = d.descricao;

@@ -21,6 +21,9 @@
         <!-- Arquivo JS -->
 
         <script src="js/app.js"></script>
+
+        <!-- Style interno -->
+        <link rel="stylesheet" href="css/style.css">
 </head>
 <body onload="carregaListaDespesas()">
     
@@ -60,7 +63,7 @@
                 </div>
             </div>
             <div class="row mb-2">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-2">
                     <select name="ano" id="ano" class="form-control">
                         <option value="">Ano</option>
                         <option value="2022">2022</option>
@@ -68,7 +71,7 @@
                         <option value="2024">2024</option>
                     </select>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 mb-2">
                     <select name="mes" id="mes" class="form-control">
                         <option value="">Mês</option>
                         <option value="1">Janeiro</option>
@@ -85,26 +88,26 @@
                         <option value="12">Dezembro</option>
                     </select>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 mb-2">
                     <input type="text" name="dia" id="dia" class="form-control" placeholder="Dia">
                 </div>
                 <div class="col-md-6">
                     <select name="tipo-despesa" id="tipo" class="form-control">
                         <option value="">Tipo</option>
                         <option value="1">Alimentação</option>
-                        <option value="6">Combustível</option>
                         <option value="2">Educação</option>
                         <option value="3">Lazer</option>
                         <option value="4">Saúde</option>
                         <option value="5">Transporte</option>
+                        <option value="6">Vestimenta</option>
                     </select>
                 </div>
             </div>
             <div class="row mb-5">
-                <div class="col-md-8">
+                <div class="col-md-8 mb-2">
                     <input type="text" name="descricao" id="descricao" class="form-control" placeholder="Descrição">
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 mb-2">
                     <input type="text" name="valor" id="valor" class="form-control" placeholder="Valor">
                 </div>
                 <div class="col-md-2 d-flex justify-content-end">
